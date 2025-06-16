@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #FFE9CF;
+  color: #270F03;
+}
+button {
+  background: #270F03;
+  color: #FEF8F1;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  position: relative;
+}
+.slider-container {
+  position: relative;
+  width: 300px;
+  height: 50px;
+}
+.police-tape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    yellow 0 10px,
+    black 10px 20px
+  );
+  z-index: 1;
+}
+#dragBtn {
+  position: relative;
+  z-index: 2;
+}
+.flip-section {
+  padding: 50px;
+  text-align: center;
+}
+#flipArea.grid-view {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+#flipArea.list-view {
+  display: block;
+}
+.item {
+  background: #FEF8F1;
+  padding: 20px;
+}
+.scroll-section {
+  padding: 100px;
+  text-align: center;
+}
+.image-container {
+  overflow: hidden;
+}
+.simple-slider {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #FEF8F1;
+}
+.marquee {
+  overflow: hidden;
+  background: #270F03;
+}
+.marquee-content {
+  white-space: nowrap;
+  display: inline-block;
+  color: #FEF8F1;
+  animation: marquee 10s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
