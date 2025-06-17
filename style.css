@@ -1,95 +1,94 @@
 body {
   margin: 0;
+  background-color: #FFE9CF;
   font-family: sans-serif;
-  background: #FFE9CF;
   color: #270F03;
 }
-button {
-  background: #270F03;
-  color: #FEF8F1;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+
+.container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #FEF8F1;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
-.hero {
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.control {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 50vh;
-  position: relative;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
-.slider-container {
-  position: relative;
-  width: 300px;
-  height: 50px;
+
+.control label {
+  flex: 1;
 }
-.police-tape {
+
+.control input[type="color"],
+.control input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.control span {
+  width: 80px;
+  text-align: right;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
   position: absolute;
+  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    yellow 0 10px,
-    black 10px 20px
-  );
-  z-index: 1;
+  background-color: #ccc;
+  border-radius: 28px;
+  transition: .4s;
 }
-#dragBtn {
-  position: relative;
-  z-index: 2;
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
 }
-.flip-section {
-  padding: 50px;
-  text-align: center;
+
+input:checked + .slider {
+  background-color: #2196F3;
 }
-#flipArea.grid-view {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-#flipArea.list-view {
-  display: block;
-}
-.item {
-  background: #FEF8F1;
-  padding: 20px;
-}
-.scroll-section {
-  padding: 100px;
-  text-align: center;
-}
-.image-container {
-  overflow: hidden;
-}
-.simple-slider {
-  position: relative;
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
-}
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-.slide {
-  min-width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-  background: #FEF8F1;
-}
-.marquee {
-  overflow: hidden;
-  background: #270F03;
-}
-.marquee-content {
-  white-space: nowrap;
-  display: inline-block;
-  color: #FEF8F1;
-  animation: marquee 10s linear infinite;
-}
-@keyframes marquee {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
+
+input:checked + .slider:before {
+  transform: translateX(22px);
 }
