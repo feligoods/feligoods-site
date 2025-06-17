@@ -1,57 +1,165 @@
-// Animate hero text and button on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const timeline = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+window.addEventListener("DOMContentLoaded", () => {
+  // Hero text stagger fade/slide animation
+  const tlHero = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.7 } });
 
-  timeline.to(".hero h1", { opacity: 1, y: 0 })
-          .to(".hero p", { opacity: 1, y: 0 }, "-=0.5")
-          .to(".btn-primary", { opacity: 1, y: 0 }, "-=0.5");
+  tlHero.to(".hero h1", { opacity: 1, y: 0, stagger: 0.15 })
+        .to(".hero p", { opacity: 1, y: 0 }, "-=0.4")
+        .to(".btn-primary", { opacity: 1, y: 0 }, "-=0.3");
 
-  // Animate section headings and paragraphs on scroll using Intersection Observer + GSAP
-  const sections = document.querySelectorAll("section");
+  // Animate shapes with subtle scale/rotate loop
+  gsap.to(".circle1", { scale: 1.1, rotation: 8, duration: 6, yoyo: true, repeat: -1, ease: "sine.inOut" });
+  gsap.to(".circle2", { scale: 1.15, rotation: -6, duration: 7, yoyo: true, repeat: -1, ease: "sine.inOut" });
+  gsap.to(".blob1", { scale: 1.05, rotation: 5, duration: 8, yoyo: true, repeat: -1, ease: "sine.inOut" });
+  gsap.to(".blob2", { scale: 1.08, rotation: -4, duration: 6.5, yoyo: true, repeat: -1, ease: "sine.inOut" });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
+  // Features fade & slide in on scroll
+  const features = gsap.utils.toArray(".feature");
+  const featuresHeading = document.querySelector(".features h2");
+  const pricingHeading = document.querySelector(".pricing h2");
+  const pricingText = document.querySelector(".pricing p");
+  const pricingBox = document.querySelector(".placeholder-box");
+  const contactHeading = document.querySelector(".contact h2");
+  const contactText = document.querySelector(".contact p");
+  const contactBtn = document.querySelector(".contact .btn-primary");
 
-  const revealSection = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const section = entry.target;
+  // Animate Features Heading
+  gsap.fromTo(featuresHeading,
+    { opacity: 0, y: 40 },
+    {
+      scrollTrigger: {
+        trigger: ".features",
+        start: "top 80%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }
+  );
 
-        gsap.to(section.querySelector("h2"), {opacity: 1, y: 0, duration: 0.8, ease: "power3.out"});
-        gsap.to(section.querySelector("p"), {opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.15});
-        // Reveal placeholders in section if any
-        const placeholders = section.querySelectorAll(".placeholder-img");
-        gsap.to(placeholders, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: "back.out(1.7)",
-          stagger: 0.15,
-          delay: 0.3,
-        });
-
-        observer.unobserve(section);
+  // Animate each feature block
+  features.forEach((feature, i) => {
+    gsap.fromTo(feature,
+      { opacity: 0, y: 50 },
+      {
+        scrollTrigger: {
+          trigger: feature,
+          start: "top 85%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: i * 0.2,
+        ease: "power3.out",
       }
+    );
+  });
+
+  // Animate Pricing Section
+  gsap.fromTo(pricingHeading,
+    { opacity: 0, y: 40 },
+    {
+      scrollTrigger: {
+        trigger: ".pricing",
+        start: "top 80%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }
+  );
+
+  gsap.fromTo(pricingText,
+    { opacity: 0, y: 30 },
+    {
+      scrollTrigger: {
+        trigger: ".pricing",
+        start: "top 75%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: "power3.out",
+    }
+  );
+
+  gsap.fromTo(pricingBox,
+    { opacity: 0, scale: 0.9 },
+    {
+      scrollTrigger: {
+        trigger: ".pricing",
+        start: "top 70%",
+      },
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      delay: 0.3,
+      ease: "power3.out",
+    }
+  );
+
+  // Animate Contact Section
+  gsap.fromTo(contactHeading,
+    { opacity: 0, y: 40 },
+    {
+      scrollTrigger: {
+        trigger: ".contact",
+        start: "top 80%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }
+  );
+
+  gsap.fromTo(contactText,
+    { opacity: 0, y: 30 },
+    {
+      scrollTrigger: {
+        trigger: ".contact",
+        start: "top 75%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: "power3.out",
+    }
+  );
+
+  gsap.fromTo(contactBtn,
+    { opacity: 0, y: 30 },
+    {
+      scrollTrigger: {
+        trigger: ".contact",
+        start: "top 70%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: 0.3,
+      ease: "power3.out",
+    }
+  );
+
+  // Highlight nav links on scroll
+  const sections = document.querySelectorAll("main > section");
+  const navLinks = document.querySelectorAll(".side-nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = null;
+    sections.forEach(section => {
+      const top = section.offsetTop - window.innerHeight / 3;
+      if (pageYOffset >= top) current = section.getAttribute("id");
     });
-  };
 
-  const observer = new IntersectionObserver(revealSection, observerOptions);
-  sections.forEach(section => observer.observe(section));
-
-  // Smooth scroll on nav link clicks
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 80, // offset for fixed header
-          behavior: 'smooth',
-        });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
       }
     });
   });
