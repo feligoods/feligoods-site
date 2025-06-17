@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Coloring Options</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GSAP Webflow Offbrand Replica</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Coloring Options</h1>
 
-    <div class="control">
-      <label for="lineColor">Line Color</label>
-      <input type="color" id="lineColor" value="#000000">
-      <span>#000000</span>
+<header>
+  <div class="logo">GSAP Offbrand</div>
+  <nav>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" role="banner">
+    <h1>Animate Anything.<br>Anywhere.</h1>
+    <p>Use the most powerful animation library in the world to bring your ideas to life — no matter your skill level.</p>
+    <a href="#features" class="btn-primary">Get Started</a>
+  </section>
+
+  <section id="features" aria-label="Features">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="placeholder-img" aria-hidden="true">Image Placeholder</div>
+        <h3>Robust Timeline Control</h3>
+        <p>Control animations with precision using timelines, tweens, and callbacks.</p>
+      </div>
+      <div class="feature">
+        <div class="placeholder-img" aria-hidden="true">Image Placeholder</div>
+        <h3>Cross-browser Compatibility</h3>
+        <p>Works flawlessly on all modern browsers, desktops, and mobile devices.</p>
+      </div>
+      <div class="feature">
+        <div class="placeholder-img" aria-hidden="true">Image Placeholder</div>
+        <h3>Flexible Easing Functions</h3>
+        <p>Create smooth and natural motion with customizable easing curves.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="control">
-      <label for="bgColor">Background Color</label>
-      <input type="color" id="bgColor" value="#ffffff">
-      <span>#ffffff</span>
-    </div>
+  <section id="pricing" aria-label="Pricing">
+    <h2>Pricing</h2>
+    <p>Start for free. Upgrade to Pro for advanced features, priority support, and more.</p>
+    <div class="placeholder-img" aria-hidden="true">Pricing Table Placeholder</div>
+  </section>
 
-    <div class="control">
-      <label for="thickness">Line Thickness</label>
-      <input type="range" id="thickness" min="1" max="20" value="5">
-      <span>5</span>
-    </div>
+  <section id="contact" aria-label="Contact">
+    <h2>Contact Us</h2>
+    <p>Questions? Reach out anytime, and we'll be happy to help.</p>
+    <a href="mailto:support@gsap.com" class="btn-primary">Email Support</a>
+  </section>
+</main>
 
-    <div class="toggle-row">
-      <label>Enable Clean Mode</label>
-      <label class="switch">
-        <input type="checkbox" id="cleanMode">
-        <span class="slider"></span>
-      </label>
-    </div>
-  </div>
+<footer>
+  &copy; 2025 GSAP Offbrand. All rights reserved.
+</footer>
 
-  <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.2/gsap.min.js"></script>
+<script src="scripts.js"></script>
+
 </body>
 </html>

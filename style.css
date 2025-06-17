@@ -1,94 +1,197 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+* {
   margin: 0;
-  background-color: #FFE9CF;
-  font-family: sans-serif;
-  color: #270F03;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 30px;
-  background: #FEF8F1;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
-h1 {
-  margin-bottom: 30px;
-  font-size: 24px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.control {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.control label {
-  flex: 1;
-}
-
-.control input[type="color"],
-.control input[type="range"] {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.control span {
-  width: 80px;
-  text-align: right;
-}
-
-.toggle-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
+header {
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 28px;
-  transition: .4s;
+  background: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: .4s;
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+nav a {
+  margin-left: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #666;
+  transition: color 0.3s;
+  cursor: pointer;
 }
 
-input:checked + .slider:before {
-  transform: translateX(22px);
+nav a:hover {
+  color: #0077ff;
+}
+
+main {
+  padding-top: 90px; /* header height + some space */
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 700px;
+  margin: 3rem auto 6rem;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-weight: 900;
+  font-size: 3.5rem;
+  max-width: 520px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.hero p {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  color: #555;
+  max-width: 520px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #0077ff;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 2.25rem;
+  border-radius: 9999px;
+  box-shadow: 0 6px 12px rgb(0 119 255 / 0.4);
+  transition: background 0.3s;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.btn-primary:hover {
+  background: #005fcc;
+}
+
+section {
+  max-width: 900px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+section h2 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+section p {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  color: #444;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Placeholder image box */
+.placeholder-img {
+  width: 100%;
+  height: 320px;
+  background: #ddd;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-size: 1.5rem;
+  user-select: none;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Two column layout for features */
+.features {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature {
+  flex: 1 1 280px;
+  background: #f9f9f9;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.05);
+  text-align: center;
+}
+
+.feature .placeholder-img {
+  height: 140px;
+  margin-bottom: 1.5rem;
+}
+
+.feature h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .features {
+    flex-direction: column;
+  }
 }
