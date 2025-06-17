@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>felixette x feluffy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+</head>
+<body>
+  <nav class="navbar fixed-navbar">
+    <div class="logo">felixette <span>x</span> feluffy</div>
+    <div class="nav-tabs">
+      <button data-scroll="flip" class="active">Flip</button>
+      <button data-scroll="scroll-trigger">Scroll Trigger</button>
+      <button data-scroll="slider">Slider</button>
+      <button data-scroll="inertia">Inertia</button>
+      <button data-scroll="text-effects">Text Effects</button>
+      <button data-scroll="marquee">Marquee</button>
+    </div>
+  </nav>
+  <header class="hero">
+    <h1>Make Your World Cuter with Felixette x Feluffy Art</h1>
+    <p class="subtitle">Posters, coloring books, and accessories for cat lovers & dreamers.</p>
+    <div class="hero-cta">
+      <a href="https://gumroad.com/" class="cta-btn">Shop Art Prints</a>
+      <a href="https://www.amazon.pl/s?i=stripbooks&rh=p_27%3AFelixette" class="cta-btn">Coloring Books on Amazon</a>
+      <a href="https://ko-fi.com/felixette" class="cta-btn">Support on Ko-fi</a>
+    </div>
+  </header>
+  <main>
+    <section class="feed-cat-section">
+      <h2>Feed the Cat!</h2>
+      <div class="feed-cat-game">
+        <div class="food-container">
+          <img src="https://placehold.co/60x60/ff4444/fff?text=Candy" class="food-img draggable-food" data-food="candy" alt="Candy">
+          <img src="https://placehold.co/60x60/ffffff/000?text=Milk" class="food-img draggable-food" data-food="milk" alt="Milk" style="display:none;">
+          <img src="https://placehold.co/60x60/8B5C2A/fff?text=Cookie" class="food-img draggable-food" data-food="cookie" alt="Cookie" style="display:none;">
+        </div>
+        <div class="cat-container">
+          <img src="https://placehold.co/120x120?text=Cat" class="cat-img cat-regular" alt="Cat">
+          <img src="https://placehold.co/120x120?text=Cat+Yum" class="cat-img cat-eating" alt="Cat Eating" style="display:none;">
+          <div class="crumbs-container"></div>
+        </div>
+        <div class="feed-counter">Treats fed: <span id="treats-fed">0</span></div>
+      </div>
+    </section>
+    <section class="gallery-section">
+      <h2>Gallery</h2>
+      <div class="features-toggle">
+        <button class="list-btn">List</button>
+        <button class="grid-btn active">Grid</button>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" style="background:#00cfd1">
+          <h3>Coffee Cat</h3>
+          <img src="https://placehold.co/150x150?text=Coffee+Cat" alt="Coffee Cat">
+          <a href="https://gumroad.com/" class="buy-btn">Buy Poster</a>
+        </div>
+        <div class="feature-card" style="background:#ff8c2b">
+          <h3>Gaming Cat</h3>
+          <img src="https://placehold.co/150x150?text=Gaming+Cat" alt="Gaming Cat">
+          <a href="https://gumroad.com/" class="buy-btn">Buy Poster</a>
+        </div>
+        <div class="feature-card" style="background:#ffe05b">
+          <h3>Astrology Cat</h3>
+          <img src="https://placehold.co/150x150?text=Astrology+Cat" alt="Astrology Cat">
+          <a href="https://gumroad.com/" class="buy-btn">Buy Poster</a>
+        </div>
+        <!-- Add more art cards as needed -->
+      </div>
+    </section>
+    <section class="featured-product-section">
+      <h2>Featured: Coloring Books</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start;">
+        <div style="max-width: 220px; text-align: center;">
+          <img src="https://placehold.co/200x280?text=Fantasy+Hunt" class="coloring-book-img" alt="Fantasy Hunt Coloring Book">
+          <p><strong>Fantasy Hunt: Dreamscapes</strong><br>20 high-detail surreal dreamscape illustrations to color and explore.</p>
+          <a href="https://www.amazon.pl/Fantasy-Hunt/dp/B0F7J4CHJW" class="cta-btn" target="_blank">Buy on Amazon</a>
+        </div>
+        <div style="max-width: 220px; text-align: center;">
+          <img src="https://placehold.co/200x280?text=Bee+Life" class="coloring-book-img" alt="Bee Life Coloring Book">
+          <p><strong>Bee Life in the Hive</strong><br>Discover the magical world of bees and their daily adventures in the hive.</p>
+          <a href="#" class="cta-btn" target="_blank">Coming Soon</a>
+        </div>
+      </div>
+    </section>
+    <section class="about-section">
+      <h2>About Felixette & Feluffy</h2>
+      <div class="about-flex">
+        <img src="https://placehold.co/120x120?text=Felixette" class="about-img" alt="Felixette">
+        <div>
+          <p>Hi, I’m Felixette! I create whimsical cat art to brighten your day. Feluffy is my world of playful, cozy, and magical cats.</p>
+        </div>
+      </div>
+    </section>
+    <section class="support-section">
+      <h2>Support & Social</h2>
+      <a href="https://ko-fi.com/felixette#checkoutModal" class="cta-btn">Buy me a coffee!</a>
+      <form class="newsletter-form">
+        <input type="email" id="newsletter-email" name="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+    <section class="marquee-section">
+      <div class="marquee">
+        <span>New: Gaming Cats! | Free coloring page with every order! | Follow @felixette.art on Instagram | </span>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://gumroad.com/">Gumroad</a>
+      <a href="https://etsy.com/">Etsy</a>
+      <a href="https://www.amazon.pl/Fantasy-Hunt/dp/B0F7J4CHJW">Amazon</a>
+      <a href="https://ko-fi.com/felixette">Ko-fi</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="mailto:hello@feligoods.com">Email</a>
+    </div>
+    <div class="footer-copy">© 2025 Felixette x Feluffy. All rights reserved.</div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
