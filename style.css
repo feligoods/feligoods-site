@@ -13,19 +13,27 @@ body {
   background: #ffe8ccf0;
   box-shadow: 0 2px 12px #0001;
   padding: 8px 32px;
-  height: 56px;
+  height: 64px;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: background 0.2s;
 }
 .logo {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: #2d1200;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .logo span {
   font-style: italic;
-  color: #2d1200;
+  color: #3a7efd;
+  margin: 0 8px;
 }
 .nav-tabs {
   display: flex;
@@ -382,7 +390,7 @@ main {
   cursor: grab;
   z-index: 10;
   transition: opacity 0.2s;
-  background: #fff;
+  background: transparent;
 }
 .cat-img {
   width: 120px;
